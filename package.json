@@ -1,0 +1,32 @@
+{
+  "name": "uploadmidnode",
+  "version": "0.0.1",
+  "description": "NodeJS middleware to upload files 'multipart/form-data'",
+  "author": "Felipe Kautzmann <felipe.kautzmann@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipekm/uploadmidnode.git"
+  },
+  "keywords": [
+    "upload",
+    "middleware",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felipekm/uploadmidnode/issues"
+  },
+  "homepage": "https://github.com/felipekm/uploadmidnode#readme",
+  "dependencies": {
+    "formidable": "^1.0.17",
+    "fs-extra": "^0.23.1",
+    "node-uuid": "^1.4.3"
+  },
+  "devDependencies": {
+    "express": "^4.13.3"
+  }
+}

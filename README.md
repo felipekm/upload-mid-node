@@ -4,7 +4,7 @@
 
 ## Installation
 ```sh
-$ npm install --save uploadmidnode
+$ WIP VIA NPM
 ```
 
 ## Usage

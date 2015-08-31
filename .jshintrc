@@ -1,0 +1,12 @@
+{
+    "globals" : {
+        /* angular */
+        "angular": false,
+
+        /* jquery */
+        "$": false,
+
+        /* moment */
+        "moment": false
+    }
+}

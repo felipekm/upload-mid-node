@@ -1,10 +1,10 @@
-/*jslint node:true*/
+/*jslint node:true, unparam: true*/
 /*global require, global, console */
 
 'use strict';
 
 var express         = require('express'),
-    upload_mid_node = require('../lib/uploadmidnode.js');
+    upload_mid_node = require('../lib/upload-mid-node');
 
 var app = express();
 
@@ -20,11 +20,11 @@ global.config = {
 };
 
 app.get('/', function (req, res) {
-    res.send('Foo');
+    res.send('Ok');
 });
 
 app.post(
-    '/test',
+    '/upload',
     upload_mid_node.check({
         options: global.config.public_folders.integra.docs,
         supportedFileExt: ['txt', 'doc'],
@@ -32,7 +32,9 @@ app.post(
     }),
     function (req, res) {
         console.log('OK');
-        res.status(200).send('OK:');
+        console.log('Uploaded Files: ', req.uploads);
+
+        res.status(200).send(req.uploads);
     }
 );
 

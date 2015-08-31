@@ -19,7 +19,7 @@ global.config = {
     }
 };
 
-app.get('/ping', function (req, res) {
+app.get('/', function (req, res) {
     res.send('Foo');
 });
 

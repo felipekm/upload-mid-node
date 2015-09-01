@@ -1,26 +1,60 @@
 # Upload Mid Node
 
-> Node.js file upload middleware to work with ´´´multipart/form-data´´´ which is used for uploading files.
+> Upload Mid Node js file [ExpressJS](http://expressjs.com/) middleware to handle ´´´multipart/form-data´´´ which is used for uploading files.
 
 ## Installation
 ```sh
-$ WIP VIA NPM
+$ npm install --save uploadmidnode
 ```
 
 ## Usage
-Go to the examples folder **(/examples/)**
-run:
-``` sh
-$ node server.js
+On your routes file include it with ```require``` then insert the ```check``` function such as:
+
+``` javascript
+var upload_mid_node = require('upload-mid-node');
+
+app.post('/upload',
+
+    // Upload middleware check
+    upload_mid_node.check({
+        options: global.config.public_folders.application.docs,
+        supportedFileExt: ['txt', 'doc'],
+        multiFiles: true
+    }),
+
+    // Next statement
+    function (req, res) {
+        res.status(200).send(req.uploads);
+    }
+);
 ```
-Now you can make calls throught ```/upload``` route on port 3000.
+### Options:
 
-[Here](http://code.runnable.com/UkmAgT7F3K4tAAAn/uploading-files-with-formidable-for-node-js) is a good place to make calls from a ready web app: 
-Just change the ```action``` variable to your local server eg: ```http://localhost:3000/upload```
+``` javascript
+global.config = {
+    public_folders: {
+        application: {
+            docs: {
+                path: "./public/documents",
+                limitSize: 20000000
+            }
+        }
+    }
+};
+```
 
-All the uploaded files will be saved on the ```param.options.path``` path that you need to provide.
+*  **path**: It must contain the physical path which the file will be stored, also it will create a ```temp``` which is cleaned after store the files on the final path.
+* **limitSize**: The file size limit (**KB**);
+* **supportedFileExt**: Supported file extensions;
 
-*Please, any problem or suggestion please get in touch.*
+After the middleware route it to the next statement you can access all your uploaded file properties on ```req.uploads```.
+
+## Testing
+
+[Here](http://code.runnable.com/UkmAgT7F3K4tAAAn/uploading-files-with-formidable-for-node-js) is a good place to make calls from a ready web app:
+Just change the ```action``` variable to your local server eg: ```http://localhost:PORT/upload```
+
+##### Any problem or suggestion get in touch.
 
 ## License
 

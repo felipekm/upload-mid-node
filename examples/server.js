@@ -10,7 +10,7 @@ var app = express();
 
 global.config = {
     public_folders: {
-        integra: {
+        applicationName: {
             docs: {
                 path: "./public/documents",
                 limitSize: 20000000
@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 app.post(
     '/upload',
     upload_mid_node.check({
-        options: global.config.public_folders.integra.docs,
+        options: global.config.public_folders.applicationName.docs,
         supportedFileExt: ['txt', 'doc'],
         multiFiles: false
     }),

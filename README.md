@@ -1,6 +1,6 @@
 # Upload Mid Node
 
-> Upload Mid Node js file [ExpressJS](http://expressjs.com/) middleware to handle ´´´multipart/form-data´´´ which is used for uploading files.
+> Upload Mid Node is a middleware for [ExpressJS](http://expressjs.com/) to handle ´´´multipart/form-data´´´ which basically is used for uploading files.
 
 ## Installation
 ```sh
